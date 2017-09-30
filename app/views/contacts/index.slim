@@ -1,22 +1,25 @@
-.row
-  .col-lg-12
-    .card
-      .card-block
-        - if @contacts
-          .contacts-table
-            .case.contacts-header.text-center
-              .contacts-number
-                | Case Number
-              .contacts-date
-                | Date
-              .contacts-title
-                | Title
-
-
-            - @jurisprudences.each do |jurisprudence|
-              a.case.contacts-item href=(jurisprudence_url jurisprudence) target='_blank'
-                .contacts-number.text-center=jurisprudence.number.first
-                .contacts-date.text-center=jurisprudence.case_date.strftime('%B %-d, %Y')
-                .contacts-title=jurisprudence.title
-        - else
-          h1.empty-result-placeholder No Results
+- if @contacts
+  table
+    tr
+      td
+        | Contact ID
+      td
+        | Contact
+      td 
+        | Contact Name
+    - @contacts['data'].each do |contact|
+      tr
+        td
+          .contacts-number.text-center
+            = contact['id']
+        td
+          .contacts-date.text-center
+            = contact['message_list_id']
+        td
+          .contacts-title
+            = contact['full_name']
+        td
+          a href='#'
+            | send message
+- else
+  h1.empty-result-placeholder No Results
