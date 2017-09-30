@@ -1,0 +1,22 @@
+.row
+  .col-lg-12
+    .card
+      .card-block
+        - if @contacts
+          .contacts-table
+            .case.contacts-header.text-center
+              .contacts-number
+                | Case Number
+              .contacts-date
+                | Date
+              .contacts-title
+                | Title
+
+
+            - @jurisprudences.each do |jurisprudence|
+              a.case.contacts-item href=(jurisprudence_url jurisprudence) target='_blank'
+                .contacts-number.text-center=jurisprudence.number.first
+                .contacts-date.text-center=jurisprudence.case_date.strftime('%B %-d, %Y')
+                .contacts-title=jurisprudence.title
+        - else
+          h1.empty-result-placeholder No Results
