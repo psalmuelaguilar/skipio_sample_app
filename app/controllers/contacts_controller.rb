@@ -3,24 +3,26 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!, only: %i(edit update)
 
   def index
-    @contacts = service.new({}).list
+    @contacts = service.list
   end
 
   def show
-    # TODO: Must update gem as wel
-    # @contact = service.new({}).find
+
   end
 
   def edit; end
 
+  def send_message
+    binding.pry
+  end
+
   private
 
   def set_contacts
-    # TODO
-    @contact = service.find
+    @contact = service.find_contact(params[:id])
   end
 
   def service
-    service = SkipioServices::Contact
+    service = SkipioServices::Contact.new
   end
 end

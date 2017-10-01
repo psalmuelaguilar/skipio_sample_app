@@ -46,6 +46,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'puma', '~> 3.0'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -54,5 +55,16 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'rspec-rails', '~> 3.5.0'
+  gem 'mocha'
+  gem 'parallel_tests'
+  gem 'database_cleaner'
+  gem 'webmock'
+  gem 'factory_girl_rails'
+  gem 'json_expressions'
+  gem 'shoulda-matchers'
+  gem 'pundit-matchers'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

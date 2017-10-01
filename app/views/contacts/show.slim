@@ -1,0 +1,6 @@
+= form_tag(controller: "contacts", action: "send_message") do
+  = label_tag :message
+  br
+  = text_area_tag :message, nil, rows: 10, cols: 25
+  br
+  = submit_tag "Send Message"

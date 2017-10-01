@@ -19,7 +19,7 @@
           .contacts-title
             = contact['full_name']
         td
-          a href='#'
+          a href=contact_path(contact['id'])
             | send message
 - else
   h1.empty-result-placeholder No Results
