@@ -186,7 +186,7 @@ GEM
       rubyzip (~> 1.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
-    skipio_api (0.0.5)
+    skipio_api (0.0.7)
       activesupport
       addressable
     slim (3.0.8)

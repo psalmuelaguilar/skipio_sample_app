@@ -1,8 +1,13 @@
 module SkipioServices
   class Message < Base
-    def send_message
-      service.send_message
+    def send_message(options)
+      params = build_message_params(options)
+      service.send_message(params) # Move to Background jobs
     end
-    # options = { recipients: 'add comma separated ids here', message: 'add message here' }
+
+    private
+    def build_message_params(options)
+      { recipients: options[:recipients], message: options[:message] }
+    end
   end
 end
